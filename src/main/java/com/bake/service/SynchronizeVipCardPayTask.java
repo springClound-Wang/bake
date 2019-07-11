@@ -1,6 +1,5 @@
-package com.zhihuAs.service;
+package com.bake.service;
 
-import com.zhihuAs.dto.Sysconfig;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import org.apache.log4j.Logger;
@@ -34,8 +33,7 @@ public class SynchronizeVipCardPayTask extends BaseTask{
 
     @Override
     protected JsonArray getSubData(String time) {
-        String sql = "SELECT id,card_id,amount,DATE_FORMAT(pay_time, '%Y-%m-%d %H:%i:%s') as pay_time ,branch_no FROM " +
-                Sysconfig.dbName+".t_rm_card_paylist  WHERE pay_time>'"+time+"'";
+        String sql = "select flow_id,card_id,consum_amt,ope_date, branch_no from t_rm_vip_savelist where oper_des='充值卡消费'  and ope_date>'"+time+"'";
 
 
         logger.info("会员卡支付列表执行的sql为："+sql);
@@ -45,10 +43,10 @@ public class SynchronizeVipCardPayTask extends BaseTask{
     @Override
     protected void putSubPath(JSONArray dates, JsonObject data) {
         String[] str = new String[5];
-        str[0] = data.get("id")==null?"":data.get("id").getAsString();
+        str[0] = data.get("flow_id")==null?"":data.get("flow_id").getAsString();
         str[1] = data.get("card_id")==null?"":data.get("card_id").getAsString();
-        str[2] = data.get("amount")==null?"":data.get("amount").getAsString();
-        str[3] = data.get("pay_time")==null?"":data.get("pay_time").getAsString();
+        str[2] = data.get("consum_amt")==null?"":data.get("consum_amt").getAsString();
+        str[3] = data.get("ope_date")==null?"":data.get("ope_date").getAsString();
         str[4] = data.get("branch_no")==null?"All":data.get("branch_no").getAsString();
 
         dates.put(str);

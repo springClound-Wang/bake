@@ -1,2 +1,2 @@
-java -Dlog4j.appender.FILE.File=log-test1/log -jar  kemai.jar  gd_subdb_1ei8jhb
-                                                               2157BC59A6417052A15B863C0EEA4507F95EE4256DA384C263250D61EFBDE3F8DDBDDDB2E143851D09599311289298E061AE632211793A4C1433BAE204DDD134
+java -Dlog4j.appender.FILE.File=log-test1/log -jar  kemai.jar  gd_subdb_1eidqbs
+                                                               2157BC59A64170528B54C7593CF945B5F95EE4256DA384C263250D61EFBDE3F8DDBDDDB2E143851D09599311289298E061AE632211793A4C1433BAE204DDD134

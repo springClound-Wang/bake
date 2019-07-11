@@ -1,6 +1,6 @@
-package com.zhihuAs;
+package com.bake;
 
-import com.zhihuAs.dto.Sysconfig;
+import com.bake.dto.Sysconfig;
 import com.alibaba.fastjson.JSON;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
@@ -11,7 +11,7 @@ import java.io.*;
 import java.util.Properties;
 
 /**
- * @PAGENAME com.zhihuAs
+ * @PAGENAME com.bake
  * @PROJECTNAME demo
  * @DESCRIPTION
  * @AOUTH Jeff

@@ -1,6 +1,6 @@
-package com.zhihuAs.service;
+package com.bake.service;
 
-import com.zhihuAs.dto.Sysconfig;
+import com.bake.dto.Sysconfig;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import org.apache.log4j.Logger;
@@ -31,7 +31,7 @@ public class SynchronizeOperatorTask extends BaseTask{
     @Override
     protected JsonArray getSubData(String time) {
 
-         String sql = "select cashier_id, cashier_name,branch_no  from "+ Sysconfig.dbName+".t_rm_cashier where cashier_status='正常'";
+         String sql = "select oper_id, oper_name,branch_no  from "+ Sysconfig.dbName+".t_sys_operator where oper_status='正常'";
         logger.info("收银人执行的sql为："+sql);
         return this.baseDao.findBysql(sql);
     }

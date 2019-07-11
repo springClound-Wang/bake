@@ -1,6 +1,6 @@
-package com.zhihuAs.service;
+package com.bake.service;
 
-import com.zhihuAs.dto.Sysconfig;
+import com.bake.dto.Sysconfig;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import org.apache.log4j.Logger;
@@ -35,7 +35,7 @@ public class SynchronizeItemInfoTask extends BaseTask{
     @Override
     protected JsonArray getSubData(String time) {
 
-    String sql="select i.item_no,i.price,i.item_name,i.item_brand,i.item_clsno,i.item_subno,i.item_size,i.unit_no,i.modify_date, i.sale_price,i.vip_price,i.main_supcust,i.branch_no,i.build_date,ROUND(s.real_qty,0) as real_qty from "+Sysconfig.dbName+".t_bd_item_info i, (select f.item_no,sum(f.real_qty) as real_qty from "+Sysconfig.dbName+".t_im_flow f where f.db_no='+' group by f.item_no) s where s.item_no=i.item_no";
+    String sql="select i.item_no,i.price,i.item_name,i.item_brand,i.item_clsno,i.item_subno,i.item_size,i.unit_no,i.modify_date, i.sale_price,i.vip_price,i.main_supcust,s.branch_no,i.build_date,ROUND(s.real_qty,0) as real_qty from "+Sysconfig.dbName+".t_bd_item_info i, (select f.item_no,branch_no,sum(f.real_qty) as real_qty from "+Sysconfig.dbName+".t_im_flow f where f.db_no='+' group by f.item_no) s where s.item_no=i.item_no";
         logger.info("商品执行的sql为："+sql);
         return this.baseDao.findBysql(sql);
     }

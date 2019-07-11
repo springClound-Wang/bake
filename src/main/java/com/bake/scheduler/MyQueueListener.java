@@ -1,4 +1,4 @@
-package com.zhihuAs.scheduler;
+package com.bake.scheduler;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationListener;
@@ -6,7 +6,7 @@ import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.stereotype.Component;
 
 /**
- * @PAGENAME com.zhihuAs.scheduler
+ * @PAGENAME com.bake.scheduler
  * @PROJECTNAME kemai
  * @DESCRIPTION
  * @AOUTH Jeff
