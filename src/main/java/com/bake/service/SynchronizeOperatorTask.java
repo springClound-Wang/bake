@@ -39,8 +39,8 @@ public class SynchronizeOperatorTask extends BaseTask{
     @Override
     protected void putSubPath(JSONArray dates, JsonObject data) {
         String[] str = new String[3];
-        str[0] = data.get("cashier_id").getAsString();
-        str[1] = data.get("cashier_name")==null?"":data.get("cashier_name").getAsString();
+        str[0] = data.get("oper_id").getAsString();
+        str[1] = data.get("oper_name")==null?"":data.get("oper_name").getAsString();
         str[2] = data.get("branch_no")==null?"All":data.get("branch_no").getAsString();
 
         dates.put(str);
